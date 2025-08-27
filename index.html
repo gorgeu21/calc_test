@@ -1,4 +1,15 @@
 <!doctype html><meta charset="utf-8">
-<link rel="stylesheet" href="./calculator-widget.css">
+<link rel="stylesheet" href="https://gorgeu21.github.io/calc_test/calculator-widget.css?v=1">
+<style>#calc-widget{min-height:620px}</style>
+
 <div id="calc-widget"></div>
-<script src="./calculator-widget.js"></script>
+
+<!-- IIFE-версия, её и подключаем -->
+<script src="https://gorgeu21.github.io/calc_test/calculator-widget.iife.js?v=1"></script>
+<script>
+  // Попробуем самые частые способы инициализации
+  const root = '#calc-widget';
+  if (window.CalcWidget?.mount)      window.CalcWidget.mount(root);
+  else if (window.initCalculatorWidget) window.initCalculatorWidget(root);
+  else console.log('Ищу глобал виджета…', Object.keys(window).filter(k=>/calc|widget/i.test(k)));
+</script>
